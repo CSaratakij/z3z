@@ -26,6 +26,8 @@ namespace Z3Z
         }
 
         Vector2 inputVector;
+        Vector2 jumpInputVector;
+
         Vector3 velocity;
 
         MoveState moveState;
@@ -53,9 +55,11 @@ namespace Z3Z
             inputVector.x = Input.GetAxisRaw("Horizontal");
             inputVector.y = Input.GetAxisRaw("Vertical");
 
-            if (inputVector.magnitude > 1.0f) {
+            if (inputVector.magnitude > 1.0f)
                 inputVector = inputVector.normalized;
-            }
+
+            if (inputVector != Vector2.zero)
+                jumpInputVector = inputVector;
 
             moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
         }
@@ -66,13 +70,15 @@ namespace Z3Z
                 velocity = (inputVector.x * transform.right) + (inputVector.y * transform.forward);
                 velocity *= moveForce;
 
-                if (moveState == MoveState.Jump)
+                if (moveState == MoveState.Jump) {
+                    jumpInputVector = inputVector;
                     velocity.y = jumpForce;
+                }
 
                 velocity.y = velocity.y - (gravity * Time.deltaTime);
             }
             else {
-                Vector3 airboneVelocity = (inputVector.x * transform.right) + (inputVector.y * transform.forward);
+                Vector3 airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
                 airboneVelocity *= (moveForce * 0.8f);
 
                 airboneVelocity.y = velocity.y;
