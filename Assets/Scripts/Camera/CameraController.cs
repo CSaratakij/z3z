@@ -51,6 +51,11 @@ namespace Z3Z
         void Update()
         {
             InputHandler();
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
+            }
+#endif
         }
 
         void LateUpdate()
