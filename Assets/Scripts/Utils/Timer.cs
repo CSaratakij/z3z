@@ -30,7 +30,6 @@ public class Timer : MonoBehaviour
     void Update()
     {
         TickHandler();
-        Debug.Log(currentSeconds);
     }
 
     void OnDestroy()

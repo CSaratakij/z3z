@@ -19,6 +19,9 @@ namespace Z3Z
         [SerializeField]
         float terminalVelocity;
 
+        [SerializeField]
+        Gun gun;
+
         enum MoveState
         {
             Walk,
@@ -62,6 +65,10 @@ namespace Z3Z
                 jumpInputVector = inputVector;
 
             moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
+
+            if (Input.GetButtonDown("Fire1")) {
+                gun?.PullTrigger(Camera.main.transform.forward);
+            }
         }
 
         void MoveHandler()
@@ -92,3 +99,4 @@ namespace Z3Z
         }
     }
 }
+
