@@ -1361,11 +1361,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7069877466454071045, guid: a48ba8e31794b6eceaaf7c7ecf79c04b,
-        type: 3}
-      propertyPath: terminalVelocity
-      value: 60
-      objectReference: {fileID: 0}
     - target: {fileID: 7069877467825347472, guid: a48ba8e31794b6eceaaf7c7ecf79c04b,
         type: 3}
       propertyPath: barrel

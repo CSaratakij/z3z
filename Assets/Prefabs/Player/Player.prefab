@@ -113,7 +113,7 @@ MonoBehaviour:
   moveForce: 7
   jumpForce: 20
   gravity: 9.8
-  terminalVelocity: 200
+  terminalVelocity: 35
   gun: {fileID: 7069877467825347472}
 --- !u!1001 &4435331843167178433
 PrefabInstance:
