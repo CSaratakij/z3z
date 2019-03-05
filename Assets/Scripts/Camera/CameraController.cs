@@ -14,7 +14,15 @@ namespace Z3Z
 
         [SerializeField]
         [Range(1.0f, 10.0f)]
-        float sensitivity;
+        float mouseSensitivity;
+
+        [SerializeField]
+        [Range(1.0f, 10.0f)]
+        float gamepadSensitivity;
+
+        [SerializeField]
+        [Range(0.1f, 1.0f)]
+        float smoothDamp;
 
         [SerializeField]
         Transform target;
@@ -23,8 +31,14 @@ namespace Z3Z
         Vector3 offset;
 
 
+        float sensitivity;
+
         Vector2 mouseAxis;
+        Vector2 gamepadAxis;
+        Vector2 inputAxis;
+
         Vector3 rotationAxis;
+
 
         void Awake()
         {
@@ -50,10 +64,16 @@ namespace Z3Z
             mouseAxis.x = Input.GetAxisRaw("Mouse X");
             mouseAxis.y = Input.GetAxisRaw("Mouse Y");
 
-            rotationAxis.x += (-mouseAxis.y * sensitivity);
+            gamepadAxis.x = Input.GetAxisRaw("GamePad X");
+            gamepadAxis.y = Input.GetAxisRaw("GamePad Y");
+
+            inputAxis = (GamepadWatcher.IsReceiveAnyInput) ? gamepadAxis : mouseAxis;
+            sensitivity = (GamepadWatcher.IsReceiveAnyInput) ? gamepadSensitivity : mouseSensitivity;
+
+            rotationAxis.x += (-inputAxis.y * sensitivity);
             rotationAxis.x = Mathf.Clamp(rotationAxis.x, -MAX_ANGLE_X, MAX_ANGLE_X);
 
-            rotationAxis.y += (mouseAxis.x * sensitivity);
+            rotationAxis.y += (inputAxis.x * sensitivity);
 
             if (rotationAxis.y > MAX_ANGLE_Y) {
                 rotationAxis.y = rotationAxis.y - MAX_ANGLE_Y;
@@ -77,7 +97,7 @@ namespace Z3Z
         void RotateCamera()
         {
             Quaternion targetRotation = Quaternion.Euler(rotationAxis.x, rotationAxis.y, 0.0f);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, 0.6f);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smoothDamp);
         }
 
         void RotateTarget()
@@ -88,3 +108,4 @@ namespace Z3Z
         }
     }
 }
+
