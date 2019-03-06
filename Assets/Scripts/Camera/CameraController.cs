@@ -9,10 +9,6 @@ namespace Z3Z
         const float MAX_ANGLE_X = 80.0f;
         const float MAX_ANGLE_Y = 360.0f;
 
-        //Hacks
-        [SerializeField]
-        bool isUseCursorControl = false;
-
         [SerializeField]
         CursorLockMode cursurLockState;
 
@@ -44,25 +40,9 @@ namespace Z3Z
         Vector3 rotationAxis;
 
 
-        void Awake()
-        {
-            //Todo
-            //Should move these to pause menu controller
-            if (!isUseCursorControl)
-                return;
-
-            Cursor.lockState = cursurLockState;
-            Cursor.visible = false;
-        }
-
         void Update()
         {
             InputHandler();
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.Escape) && isUseCursorControl) {
-                Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
-            }
-#endif
         }
 
         void LateUpdate()

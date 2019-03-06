@@ -68,6 +68,8 @@ namespace Z3Z
         public void RestartGame()
         {
             ObjectiveChecker.ClearStat();
+            GameController.Reset();
+
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.buildIndex);
         }

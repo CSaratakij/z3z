@@ -14,6 +14,7 @@ namespace Z3Z
 
 
         public int TotalEnemy => objects.Length;
+
         public float Accuracy {
             get {
                 if (BulletCount == 0)

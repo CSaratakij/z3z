@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 155561677}
   - component: {fileID: 155561676}
   - component: {fileID: 155561680}
+  - component: {fileID: 155561681}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -578,6 +579,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   views:
   - {fileID: 300512426}
+--- !u!114 &155561681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155561675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0b30ca9a7fea0653b46d4aba0e511b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorLockState: 1
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,7 +3764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4735e41ea113dd9feb6873524f31885a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isUseCursorControl: 0
   cursurLockState: 1
   mouseSensitivity: 1.2
   gamepadSensitivity: 2
