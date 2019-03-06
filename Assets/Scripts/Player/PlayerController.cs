@@ -22,6 +22,9 @@ namespace Z3Z
         [SerializeField]
         Gun gun;
 
+        [SerializeField]
+        GunAimSight gunAimSight;
+
         enum MoveState
         {
             Walk,
@@ -67,8 +70,14 @@ namespace Z3Z
             moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
 
             if (Input.GetButtonDown("Fire1")) {
-                gun?.PullTrigger(Camera.main.transform.forward);
+                gun?.PullTrigger();
             }
+
+            if (Input.GetButtonDown("Fire2")) {
+                gunAimSight?.ToggleSight();
+            }
+
+            /* gunAimSight?.Aim(Input.GetButton("Fire2")); */
         }
 
         void MoveHandler()

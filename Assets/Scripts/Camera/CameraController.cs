@@ -9,6 +9,10 @@ namespace Z3Z
         const float MAX_ANGLE_X = 80.0f;
         const float MAX_ANGLE_Y = 360.0f;
 
+        //Hacks
+        [SerializeField]
+        bool isUseCursorControl = false;
+
         [SerializeField]
         CursorLockMode cursurLockState;
 
@@ -44,6 +48,9 @@ namespace Z3Z
         {
             //Todo
             //Should move these to pause menu controller
+            if (!isUseCursorControl)
+                return;
+
             Cursor.lockState = cursurLockState;
             Cursor.visible = false;
         }
@@ -52,7 +59,7 @@ namespace Z3Z
         {
             InputHandler();
 #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (Input.GetKeyDown(KeyCode.Escape) && isUseCursorControl) {
                 Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
             }
 #endif

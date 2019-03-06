@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerFireRate: {fileID: 6886064126216492374}
-  totalBulletPooling: 100
+  totalBulletPooling: 20
   bulletPrefab: {fileID: 5675916698113171180, guid: 9b32caec92a383f8b8123bba742a0a5e,
     type: 3}
   barrel: {fileID: 0}

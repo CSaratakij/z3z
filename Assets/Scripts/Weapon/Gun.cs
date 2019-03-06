@@ -77,6 +77,11 @@ namespace Z3Z
             }
         }
 
+        public void PullTrigger()
+        {
+            PullTrigger(barrel.transform.forward);
+        }
+
         public void PullTrigger(Vector3 aimDirection)
         {
             if (!isFireAble)

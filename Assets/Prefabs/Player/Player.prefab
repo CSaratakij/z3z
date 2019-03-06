@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7069877466454071043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41, y: -32, z: -55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 7069877467825347473}
   m_Father: {fileID: 0}
@@ -110,11 +110,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350a9b80c0805d3a3b3c7a14d89e95b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 7
+  moveForce: 8
   jumpForce: 20
   gravity: 9.8
   terminalVelocity: 35
   gun: {fileID: 7069877467825347472}
+  gunAimSight: {fileID: 1844000597}
+--- !u!114 &1844000597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069877467825347474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa3dcb8231f19200a68c73f0b53cc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunModel: {fileID: 0}
+  toggleDamp: 0.45
+  normalPos: {x: 0.8, y: -0.8, z: 2}
+  aimSightPos: {x: 0, y: -0.24, z: 1.2}
 --- !u!1001 &4435331843167178433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -182,6 +199,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
+        type: 3}
+      propertyPath: timerFireRate
+      value: 
+      objectReference: {fileID: 7069877467825347479}
+    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
+        type: 3}
+      propertyPath: totalBulletPooling
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
+        type: 3}
+      propertyPath: barrel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6886064126216492374, guid: c554d8ee089d62f6384943914857ad77,
         type: 3}
       propertyPath: currentSeconds
@@ -192,23 +224,14 @@ PrefabInstance:
       propertyPath: maxSeconds
       value: 0.18
       objectReference: {fileID: 0}
-    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
-        type: 3}
-      propertyPath: timerFireRate
-      value: 
-      objectReference: {fileID: 7069877467825347479}
-    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
-        type: 3}
-      propertyPath: totalBulletPooling
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6886064126216492369, guid: c554d8ee089d62f6384943914857ad77,
-        type: 3}
-      propertyPath: barrel
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c554d8ee089d62f6384943914857ad77, type: 3}
+--- !u!1 &7069877467825347474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6886064126216492371, guid: c554d8ee089d62f6384943914857ad77,
+    type: 3}
+  m_PrefabInstance: {fileID: 4435331843167178433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7069877467825347473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6886064126216492368, guid: c554d8ee089d62f6384943914857ad77,
@@ -221,7 +244,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4435331843167178433}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7069877467825347474}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 316089a2bbde96177998a2c4bb56aa91, type: 3}
@@ -233,7 +256,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4435331843167178433}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7069877467825347474}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47c07142b553b0b449d3d69ad18c73a3, type: 3}

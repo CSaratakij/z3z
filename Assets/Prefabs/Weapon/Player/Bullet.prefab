@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5675916698113171180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -109,7 +109,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 3
 --- !u!114 &5675916698113171094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10bc0bc1c81b40ff4b96acccb9fe866e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 60
+  moveForce: 50
   bulletColor: {r: 1, g: 0.8412895, b: 0, a: 1}
   ignoreTag: Gun
   disableDelay: 5
