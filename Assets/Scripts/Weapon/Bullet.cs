@@ -80,7 +80,6 @@ namespace Z3Z
             if (collider.gameObject.CompareTag(ignoreTag))
                 return;
 
-            Debug.Log("Bullet hit : " + collider.name);
             gameObject.SetActive(false);
         }
 
