@@ -28,7 +28,8 @@ namespace Z3Z
         enum MoveState
         {
             Walk,
-            Jump
+            Jump,
+            Idle
         }
 
         Vector2 inputVector;
@@ -43,12 +44,24 @@ namespace Z3Z
         void Awake()
         {
             Initialize();
+            SubscribeEvent();
+        }
+
+        //Test
+        void Start()
+        {
+            GameController.GameStart();
         }
 
         void Update()
         {
             InputHandler();
             MoveHandler();
+        }
+
+        void OnDestroy()
+        {
+            UnsubscribeEvent();
         }
 
         void Initialize()
@@ -58,6 +71,11 @@ namespace Z3Z
 
         void InputHandler()
         {
+            if (moveState == MoveState.Idle) {
+                inputVector = Vector2.zero;
+                return;
+            }
+
             inputVector.x = Input.GetAxisRaw("Horizontal");
             inputVector.y = Input.GetAxisRaw("Vertical");
 
@@ -67,7 +85,8 @@ namespace Z3Z
             if (inputVector != Vector2.zero)
                 jumpInputVector = inputVector;
 
-            moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
+            if (moveState != MoveState.Idle)
+                moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
 
             if (Input.GetButtonDown("Fire1")) {
                 gun?.PullTrigger();
@@ -82,6 +101,9 @@ namespace Z3Z
 
         void MoveHandler()
         {
+            if (moveState == MoveState.Idle)
+                return;
+
             if (characterController.isGrounded) {
                 velocity = (inputVector.x * transform.right) + (inputVector.y * transform.forward);
                 velocity *= moveForce;
@@ -105,6 +127,28 @@ namespace Z3Z
 
             velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, jumpForce);
             characterController.Move(velocity * Time.deltaTime);
+        }
+
+        void SubscribeEvent()
+        {
+            GameController.OnGameStart += OnGameStart;
+            GameController.OnGameOver += OnGameOver;
+        }
+
+        void UnsubscribeEvent()
+        {
+            GameController.OnGameStart -= OnGameStart;
+            GameController.OnGameOver -= OnGameOver;
+        }
+
+        void OnGameStart()
+        {
+            moveState = MoveState.Walk;
+        }
+
+        void OnGameOver()
+        {
+            moveState = MoveState.Idle;
         }
     }
 }

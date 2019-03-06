@@ -73,6 +73,9 @@ namespace Z3Z
 
         void InputHandler()
         {
+            if (!GameController.IsGameStart)
+                return;
+
             mouseAxis.x = Input.GetAxisRaw("Mouse X");
             mouseAxis.y = Input.GetAxisRaw("Mouse Y");
 

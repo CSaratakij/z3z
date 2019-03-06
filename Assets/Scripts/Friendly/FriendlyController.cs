@@ -39,6 +39,9 @@ namespace Z3Z
 
         void OnHit()
         {
+            ObjectiveChecker.ClearStat();
+            GameController.Reset();
+
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.buildIndex);
         }

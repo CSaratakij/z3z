@@ -73,6 +73,7 @@ namespace Z3Z
                 obj.gameObject.transform.position = barrel.position;
                 obj.gameObject.SetActive(true);
 
+                ObjectiveChecker.AddBulletCount();
                 break;
             }
         }

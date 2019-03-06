@@ -27,6 +27,11 @@
             IsGameStart = false;
             OnGameOver?.Invoke();
         }
+
+        public static void Reset()
+        {
+            IsGameStart = false;
+        }
     }
 }
 
