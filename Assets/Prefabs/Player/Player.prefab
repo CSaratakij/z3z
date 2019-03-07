@@ -113,7 +113,7 @@ MonoBehaviour:
   moveForce: 8
   jumpForce: 20
   gravity: 9.8
-  terminalVelocity: 35
+  terminalVelocity: 30
   gun: {fileID: 7069877467825347472}
   gunAimSight: {fileID: 1844000597}
 --- !u!114 &1844000597

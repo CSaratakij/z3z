@@ -38,11 +38,6 @@ namespace Z3Z
             UnsubscribeEvent();
         }
 
-        void LateUpdate()
-        {
-            CheckObjective();
-        }
-
         void CheckObjective()
         {
             if (!isChecking)
@@ -59,6 +54,18 @@ namespace Z3Z
                     return;
                 }
             }
+
+            if (GameController.IsGameStart) {
+                isChecking = false;
+                GameController.GameOver();
+            }
+        }
+
+
+        void OnTriggerEnter(Collider collider)
+        {
+            if (!collider.CompareTag("Player"))
+                return;
 
             if (GameController.IsGameStart) {
                 isChecking = false;
@@ -96,6 +103,23 @@ namespace Z3Z
         public static void ClearStat()
         {
             BulletCount = 0;
+        }
+
+        public bool IsPassObjective()
+        {
+            for (int i = 0; i < objects.Length; ++i)
+            {
+                if (objects[i] == null) {
+                    Debug.LogError("Some object is missing in objective...");
+                    continue;
+                }
+
+                if (objects[i].activeSelf) {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
