@@ -40,7 +40,6 @@ namespace Z3Z
 
         void LateUpdate()
         {
-            Debug.Log(Accuracy.ToString("F4"));
             CheckObjective();
         }
 
@@ -52,7 +51,7 @@ namespace Z3Z
             for (int i = 0; i < objects.Length; ++i)
             {
                 if (objects[i] == null) {
-                    Debug.Log("Some object is missing in objective...");
+                    Debug.LogError("Some object is missing in objective...");
                     continue;
                 }
 
@@ -70,16 +69,23 @@ namespace Z3Z
         void SubscribeEvent()
         {
             GameController.OnGameStart += OnGameStart;
+            GameController.OnGameReset += OnGameReset;
         }
 
         void UnsubscribeEvent()
         {
             GameController.OnGameStart -= OnGameStart;
+            GameController.OnGameReset -= OnGameReset;
         }
 
         void OnGameStart()
         {
             isChecking = true;
+        }
+
+        void OnGameReset()
+        {
+            ClearStat();
         }
 
         public static void AddBulletCount()

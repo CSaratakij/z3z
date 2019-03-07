@@ -6,6 +6,7 @@
 
         public static event _Func OnGameStart;
         public static event _Func OnGameOver;
+        public static event _Func OnGameReset;
 
         public static bool IsGameStart { get; private set; }
 
@@ -31,6 +32,7 @@
         public static void Reset()
         {
             IsGameStart = false;
+            OnGameReset?.Invoke();
         }
     }
 }

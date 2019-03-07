@@ -30,6 +30,7 @@ namespace Z3Z
         {
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
+                Cursor.visible = (Cursor.lockState == CursorLockMode.None);
             }
         }
     }
