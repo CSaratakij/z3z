@@ -10,9 +10,6 @@ namespace Z3Z
         const float MAX_ANGLE_Y = 360.0f;
 
         [SerializeField]
-        CursorLockMode cursurLockState;
-
-        [SerializeField]
         [Range(1.0f, 10.0f)]
         float mouseSensitivity;
 

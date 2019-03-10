@@ -38,10 +38,15 @@ namespace Z3Z
             viewportCenter.z = camera.nearClipPlane;
             worldPoint = camera.ViewportToWorldPoint(viewportCenter);
 
-            worldPoint += camera.transform.forward * 100.0f;
+            worldPoint += camera.transform.forward * 1000.0f;
 
             relativeVector = (worldPoint - barrel.position);
             transform.rotation = Quaternion.LookRotation(relativeVector);
+        }
+
+        public Vector3 DirectionToCenter()
+        {
+            return relativeVector.normalized;
         }
     }
 }

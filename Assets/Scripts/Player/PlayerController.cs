@@ -32,6 +32,8 @@ namespace Z3Z
             Idle
         }
 
+        bool isPressPullTrigger;
+
         Vector2 inputVector;
         Vector2 jumpInputVector;
 
@@ -88,7 +90,9 @@ namespace Z3Z
             if (moveState != MoveState.Idle)
                 moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
 
-            if (Input.GetButtonDown("Fire1")) {
+            isPressPullTrigger = Input.GetButtonDown("Fire1");
+
+            if (isPressPullTrigger) {
                 gun?.PullTrigger();
             }
 
@@ -117,7 +121,7 @@ namespace Z3Z
             }
             else {
                 Vector3 airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
-                airboneVelocity *= (moveForce * 0.8f);
+                airboneVelocity *= (moveForce * 0.9f);
 
                 airboneVelocity.y = velocity.y;
                 airboneVelocity.y -= ((velocity.y * velocity.y) + gravity) * Time.deltaTime;

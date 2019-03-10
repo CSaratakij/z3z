@@ -9,7 +9,6 @@ namespace Z3Z
     {
         const string FORMAT = "Accuracy : {0:0.##}%";
 
-
         [SerializeField]
         Text txtAccuracy;
 

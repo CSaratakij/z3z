@@ -13,9 +13,6 @@ namespace Z3Z
         Color bulletColor;
 
         [SerializeField]
-        string ignoreTag;
-
-        [SerializeField]
         float disableDelay;
 
 
@@ -77,7 +74,7 @@ namespace Z3Z
 
         void OnTriggerEnter(Collider collider)
         {
-            if (collider.gameObject.CompareTag(ignoreTag))
+            if (collider.gameObject.CompareTag("Gun") || collider.gameObject.CompareTag("Bullet"))
                 return;
 
             gameObject.SetActive(false);

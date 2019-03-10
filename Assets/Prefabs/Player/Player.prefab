@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350a9b80c0805d3a3b3c7a14d89e95b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 8
+  moveForce: 11
   jumpForce: 20
   gravity: 9.8
   terminalVelocity: 30
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunModel: {fileID: 0}
   toggleDamp: 0.45
-  normalPos: {x: 0.8, y: -0.8, z: 2}
-  aimSightPos: {x: 0, y: -0.24, z: 1.2}
+  normalPos: {x: 0.3, y: -0.6, z: 1.6}
+  aimSightPos: {x: 0, y: -0.25, z: 1.5}
 --- !u!1001 &4435331843167178433
 PrefabInstance:
   m_ObjectHideFlags: 0

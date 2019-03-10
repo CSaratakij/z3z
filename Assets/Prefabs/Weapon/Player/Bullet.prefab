@@ -124,7 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveForce: 50
   bulletColor: {r: 1, g: 0.8412895, b: 0, a: 1}
-  ignoreTag: Gun
   disableDelay: 5
 --- !u!96 &356928409322476835
 TrailRenderer:

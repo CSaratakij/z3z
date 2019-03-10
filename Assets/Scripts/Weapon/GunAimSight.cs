@@ -31,6 +31,11 @@ namespace Z3Z
         AimState aimState;
 
 
+        void Awake()
+        {
+            gunModel.localPosition = normalPos;
+        }
+
         void LateUpdate()
         {
             if (previousAimState == aimState)
