@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7069877466454071040}
   - component: {fileID: 7069877466454071042}
   - component: {fileID: 7069877466454071045}
+  - component: {fileID: 1620247450}
+  - component: {fileID: 1620247451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,6 +118,31 @@ MonoBehaviour:
   terminalVelocity: 30
   gun: {fileID: 7069877467825347472}
   gunAimSight: {fileID: 1844000597}
+--- !u!114 &1620247450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069877466454071043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57edb382a1d70695c847c2fd1db44744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1620247451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069877466454071043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2210d79755c55c97789aaf5ab07d8326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitTag: BulletEnemy
 --- !u!114 &1844000597
 MonoBehaviour:
   m_ObjectHideFlags: 0

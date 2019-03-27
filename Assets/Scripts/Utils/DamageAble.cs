@@ -9,6 +9,14 @@ namespace Z3Z
         public delegate void _Func();
         public event _Func OnHit;
 
+        [SerializeField]
+        string hitTag;
+
+        void Awake()
+        {
+            if (hitTag == string.Empty)
+                hitTag = "Bullet";
+        }
 
         void OnDestroy()
         {
@@ -17,7 +25,7 @@ namespace Z3Z
 
         void OnTriggerEnter(Collider collider)
         {
-            if (collider.CompareTag("Bullet")) {
+            if (collider.CompareTag(hitTag)) {
                 OnHit?.Invoke();
             }
         }
