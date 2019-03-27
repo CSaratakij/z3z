@@ -38,6 +38,11 @@ namespace Z3Z
 
         void LateUpdate()
         {
+            AimSightHandler();
+        }
+
+        void AimSightHandler()
+        {
             if (previousAimState == aimState)
                 return;
 

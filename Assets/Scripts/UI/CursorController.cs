@@ -13,6 +13,7 @@ namespace Z3Z
         void Awake()
         {
             Initialize();
+            SubscribeEvent();
         }
 
         void Update()
@@ -20,10 +21,14 @@ namespace Z3Z
             InputHandler();
         }
 
+        void OnDestroy()
+        {
+            UnsubscribeEvent();
+        }
+
         void Initialize()
         {
-            Cursor.lockState = cursorLockState;
-            Cursor.visible = false;
+            ShowCursor();
         }
 
         void InputHandler()
@@ -32,6 +37,40 @@ namespace Z3Z
                 Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
                 Cursor.visible = (Cursor.lockState == CursorLockMode.None);
             }
+        }
+
+        void LockCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        void ShowCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        void SubscribeEvent()
+        {
+            GameController.OnGameStart += OnGameStart;
+            GameController.OnGameOver += OnGameOver;
+        }
+
+        void UnsubscribeEvent()
+        {
+            GameController.OnGameStart -= OnGameStart;
+            GameController.OnGameOver -= OnGameOver;
+        }
+
+        void OnGameStart()
+        {
+            LockCursor();
+        }
+
+        void OnGameOver()
+        {
+            ShowCursor();
         }
     }
 }
