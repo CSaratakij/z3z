@@ -19,6 +19,8 @@ namespace Z3Z
         [SerializeField]
         Transform barrel;
 
+        [SerializeField]
+        string owner;
 
         bool isFireAble = true;
         Bullet[] bullets;
@@ -73,7 +75,9 @@ namespace Z3Z
                 obj.gameObject.transform.position = barrel.position;
                 obj.gameObject.SetActive(true);
 
-                ObjectiveChecker.AddBulletCount();
+                if (owner == "Player")
+                    ObjectiveChecker.AddBulletCount();
+
                 break;
             }
         }

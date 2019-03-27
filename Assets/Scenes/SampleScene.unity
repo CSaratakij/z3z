@@ -7701,7 +7701,7 @@ PrefabInstance:
     - target: {fileID: 1821688760715218560, guid: 9d934ad66f3027e45a386e8e7950b331,
         type: 3}
       propertyPath: visibleRange
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d934ad66f3027e45a386e8e7950b331, type: 3}
