@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a06813635f5b7bd7297d97e758e4620c, type: 2}
+  - {fileID: 2100000, guid: 530b65cb2e13c045ea7a48c87343d51e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 030000000400000005000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 080000000700000006000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -145,7 +145,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 090000000a0000000b000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -162,7 +162,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 0e0000000d0000000c000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 0f0000001000000011000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -196,7 +196,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 140000001300000012000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -213,7 +213,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 150000001600000017000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -230,7 +230,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 1a0000001900000018000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -247,7 +247,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 1b0000001c0000001d000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -264,7 +264,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 200000001f0000001e000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -281,7 +281,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   - m_Indexes: 210000002200000023000000
     m_SmoothingGroup: 0
     m_Uv:
@@ -298,7 +298,7 @@ MonoBehaviour:
     m_SubmeshIndex: 0
     m_ManualUV: 0
     elementGroup: 0
-    m_TextureGroup: -1
+    m_TextureGroup: 0
   m_SharedVertices:
   - m_Vertices: 00000000030000001f00000022000000
   - m_Vertices: 01000000040000000600000009000000
