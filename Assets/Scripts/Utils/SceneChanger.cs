@@ -8,7 +8,14 @@ namespace Z3Z
     [RequireComponent(typeof(Timer))]
     public class SceneChanger : MonoBehaviour
     {
+        [SerializeField]
+        bool isChangeOnStart;
+
+        [SerializeField]
+        int buildIndex;
+
         Timer timer;
+
 
         void Awake()
         {
@@ -18,7 +25,8 @@ namespace Z3Z
 
         void Start()
         {
-            timer.Countdown();
+            if (isChangeOnStart)
+                timer.Countdown();
         }
 
         void OnDestroy()
@@ -43,7 +51,12 @@ namespace Z3Z
 
         void OnStop()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(buildIndex);
+        }
+
+        public void BeginChange()
+        {
+            timer.Countdown();
         }
     }
 }

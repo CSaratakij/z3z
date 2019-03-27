@@ -19,6 +19,9 @@ namespace Z3Z
         [SerializeField]
         ObjectiveChecker objectiveChecker;
 
+        [SerializeField]
+        GameObject btnNextScene;
+
 
         void OnEnable()
         {
@@ -34,6 +37,8 @@ namespace Z3Z
 
             lblPass.text = message;
             lblPass.color = textColor;
+
+            btnNextScene.gameObject.SetActive(isPass);
         }
     }
 }
