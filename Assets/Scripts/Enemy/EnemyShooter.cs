@@ -7,6 +7,9 @@ namespace Z3Z
     public class EnemyShooter : StandStilEnemy
     {
         [SerializeField]
+        float visibleRange;
+
+        [SerializeField]
         Transform target;
 
         [SerializeField]
@@ -40,7 +43,7 @@ namespace Z3Z
         {
             aimDirection = (target.position - transform.position).normalized;
 
-            if (Physics.Raycast(transform.position, aimDirection, out hit, 100.0f, targetLayer)) {
+            if (Physics.Raycast(transform.position, aimDirection, out hit, visibleRange, targetLayer)) {
                 isTargetVisible = hit.collider.gameObject.CompareTag("Player");
             }
         }
@@ -59,6 +62,11 @@ namespace Z3Z
                 return;
 
             transform.rotation = Quaternion.LookRotation(aimDirection, Vector3.up);
+        }
+
+        public override void Attack()
+        {
+            ShootHandler();
         }
     }
 }
