@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gun
   - Bullet
+  - Spike
   layers:
   - Default
   - TransparentFX
