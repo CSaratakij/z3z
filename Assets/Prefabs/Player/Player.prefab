@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: 11
-  jumpForce: 20
-  gravity: 9.8
+  jumpForce: 12
+  gravity: 30
   terminalVelocity: 30
   gun: {fileID: 7069877467825347472}
   gunAimSight: {fileID: 1844000597}

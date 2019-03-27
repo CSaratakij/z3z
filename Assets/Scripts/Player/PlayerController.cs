@@ -38,6 +38,7 @@ namespace Z3Z
         Vector2 jumpInputVector;
 
         Vector3 velocity;
+        Vector3 airboneVelocity;
 
         MoveState moveState;
         CharacterController characterController;
@@ -120,11 +121,11 @@ namespace Z3Z
                 velocity.y = velocity.y - (gravity * Time.deltaTime);
             }
             else {
-                Vector3 airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
-                airboneVelocity *= (moveForce * 0.9f);
+                airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
+                airboneVelocity *= (moveForce * 1.0f);
 
                 airboneVelocity.y = velocity.y;
-                airboneVelocity.y -= ((velocity.y * velocity.y) + gravity) * Time.deltaTime;
+                airboneVelocity.y -= gravity * Time.deltaTime;
 
                 velocity = airboneVelocity;
             }
