@@ -18,12 +18,22 @@ namespace Z3Z
 
         void OnEnable()
         {
-            UpdateUI();
+            if (objectiveChecker.IsPassObjective()) {
+                UpdateUI();
+            }
+            else {
+                ClearUI();
+            }
         }
 
         void UpdateUI()
         {
             txtAccuracy.text = string.Format(FORMAT, objectiveChecker.Accuracy * 100.0f);
+        }
+
+        void ClearUI()
+        {
+            txtAccuracy.text = string.Empty;
         }
     }
 }
