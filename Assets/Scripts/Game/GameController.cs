@@ -1,12 +1,12 @@
-﻿namespace Z3Z
+﻿using System;
+
+namespace Z3Z
 {
     public class GameController
     {
-        public delegate void _Func();
-
-        public static event _Func OnGameStart;
-        public static event _Func OnGameOver;
-        public static event _Func OnGameReset;
+        public static event Action OnGameStart;
+        public static event Action OnGameOver;
+        public static event Action OnGameReset;
 
         public static bool IsGameStart { get; private set; }
 

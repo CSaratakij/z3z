@@ -37,6 +37,12 @@ namespace Z3Z
                 Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
                 Cursor.visible = (Cursor.lockState == CursorLockMode.None);
             }
+
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.F2)) {
+                ShowCursor();
+            }
+#endif
         }
 
         void LockCursor()

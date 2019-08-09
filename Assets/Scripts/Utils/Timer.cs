@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,14 +12,10 @@ public class Timer : MonoBehaviour
     float maxSeconds;
 
 
-    public delegate void _Func();
-    public delegate void _FuncValueFloat(float value);
-    public delegate void _FuncValueBool(bool value);
-
-    public event _Func OnStart;
-    public event _Func OnStop;
-    public event _FuncValueFloat OnTick;
-    public event _FuncValueBool OnPause;
+    public event Action OnStart;
+    public event Action OnStop;
+    public event Action<float> OnTick;
+    public event Action<bool> OnPause;
 
     public float Current => currentSeconds;
     public float Max => maxSeconds;

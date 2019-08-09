@@ -29,6 +29,16 @@ namespace Z3Z
                 timer.Countdown();
         }
 
+#if UNITY_EDITOR
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F12))
+            {
+                ChangeScene();
+            }
+        }
+#endif
+
         void OnDestroy()
         {
             UnsubscribeEvent();
@@ -50,6 +60,11 @@ namespace Z3Z
         }
 
         void OnStop()
+        {
+            ChangeScene();
+        }
+
+        void ChangeScene()
         {
             SceneManager.LoadScene(buildIndex);
         }

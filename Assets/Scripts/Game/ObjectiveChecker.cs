@@ -21,7 +21,6 @@ namespace Z3Z
                     return 0.0f;
                 else
                     return (float)TotalEnemy / (float)BulletCount;
-
             }
         }
 

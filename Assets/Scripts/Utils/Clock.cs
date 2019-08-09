@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,15 +7,11 @@ namespace Z3Z
 {
     public class Clock : MonoBehaviour
     {
-        public delegate void _Func();
+        public event Action OnBeginTick;
+        public event Action OnEndTick;
 
-        public event _Func OnBeginTick;
-        public event _Func OnEndTick;
-
-        public float Elapsed
-        {
-            get
-            {
+        public float Elapsed {
+            get {
                 if (tickState == TickState.Begin) {
                     return Time.time - startSeconds;
                 }
@@ -24,7 +21,7 @@ namespace Z3Z
             }
         }
 
-        public bool IsTick => tickState == TickState.Begin;
+        public bool IsTick => (tickState == TickState.Begin);
 
         enum TickState
         {
