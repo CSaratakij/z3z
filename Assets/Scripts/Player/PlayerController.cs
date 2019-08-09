@@ -29,16 +29,23 @@ namespace Z3Z
         {
             Walk,
             Jump,
+            InstantJump,
             Idle
         }
 
+        float instantJumpForce;
+
         bool isPressPullTrigger;
+        bool isPreventControlAirboneMovement;
+        bool isFallingDown;
 
         Vector2 inputVector;
         Vector2 jumpInputVector;
+        Vector2 instantInputVector;
 
         Vector3 velocity;
         Vector3 airboneVelocity;
+        Vector3 instantJumpVelocity;
 
         MoveState moveState;
         CharacterController characterController;
@@ -88,9 +95,6 @@ namespace Z3Z
             if (inputVector != Vector2.zero)
                 jumpInputVector = inputVector;
 
-            if (moveState != MoveState.Idle)
-                moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
-
             isPressPullTrigger = Input.GetButtonDown("Fire1");
 
             if (isPressPullTrigger) {
@@ -102,6 +106,12 @@ namespace Z3Z
             }
 
             /* gunAimSight?.Aim(Input.GetButton("Fire2")); */
+
+            if (moveState == MoveState.InstantJump)
+                return;
+
+            if (moveState != MoveState.Idle)
+                moveState = Input.GetButtonDown("Jump") ? MoveState.Jump : MoveState.Walk;
         }
 
         void MoveHandler()
@@ -118,20 +128,41 @@ namespace Z3Z
                     velocity.y = jumpForce;
                 }
 
+                if (moveState == MoveState.InstantJump) {
+                    jumpInputVector = Vector3.zero;
+                    velocity = instantJumpVelocity;
+                }
+
                 velocity.y = velocity.y - (gravity * Time.deltaTime);
             }
             else {
-                airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
-                airboneVelocity *= (moveForce * 1.0f);
+                if (isPreventControlAirboneMovement) {
+                    airboneVelocity = instantJumpVelocity;
+                }
+                else {
+                    airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
+                    airboneVelocity *= moveForce;
+                }
 
                 airboneVelocity.y = velocity.y;
-                airboneVelocity.y -= gravity * Time.deltaTime;
+                airboneVelocity.y -= (gravity * Time.deltaTime);
 
                 velocity = airboneVelocity;
             }
 
-            velocity.y = Mathf.Clamp(velocity.y, -terminalVelocity, jumpForce);
             characterController.Move(velocity * Time.deltaTime);
+
+            if (moveState == MoveState.InstantJump)
+                moveState = MoveState.Walk;
+
+            if (velocity.y < 0.0f && isPreventControlAirboneMovement) {
+                isFallingDown = true;
+            }
+
+            if (isFallingDown && velocity.y < (instantJumpVelocity.y * -0.8f)) {
+                jumpInputVector = Vector2.up;
+                isPreventControlAirboneMovement = false;
+            }
         }
 
         void SubscribeEvent()
@@ -154,6 +185,14 @@ namespace Z3Z
         void OnGameOver()
         {
             moveState = MoveState.Idle;
+        }
+
+        internal void InstantJump(Vector3 velocity)
+        {
+            moveState = MoveState.InstantJump;
+            instantJumpVelocity = velocity;
+            isFallingDown = false;
+            isPreventControlAirboneMovement = true;
         }
     }
 }
