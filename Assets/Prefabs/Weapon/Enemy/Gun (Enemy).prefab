@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7166671066217152678}
   - component: {fileID: 7166671066217152672}
   - component: {fileID: 7166671066217152679}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gun (Enemy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,3 +63,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5675916698113171180, guid: 63c7da4443fdf0bb2a6f10a6a9450eda,
     type: 3}
   barrel: {fileID: 7166671066217152678}
+  owner: 

@@ -23,7 +23,7 @@ namespace Z3Z
             Initialize();
         }
 
-        void LateUpdate()
+        void Start()
         {
             LookAtViewCenterHandler();
         }
@@ -44,7 +44,7 @@ namespace Z3Z
             transform.rotation = Quaternion.LookRotation(relativeVector);
         }
 
-        public Vector3 DirectionToCenter()
+        internal Vector3 DirectionToCenter()
         {
             return relativeVector.normalized;
         }

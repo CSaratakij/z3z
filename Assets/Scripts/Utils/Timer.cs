@@ -50,12 +50,12 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void Pause()
+    internal void Pause()
     {
         Pause(true);
     }
 
-    public void Pause(bool value)
+    internal void Pause(bool value)
     {
         if (IsPause == value)
             return;
@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
         OnPause?.Invoke(value);
     }
 
-    public void Countdown()
+    internal void Countdown()
     {
         if (IsStart)
             return;
@@ -75,7 +75,7 @@ public class Timer : MonoBehaviour
         OnStart?.Invoke();
     }
 
-    public void Stop()
+    internal void Stop()
     {
         if (!IsStart)
             return;
@@ -86,7 +86,7 @@ public class Timer : MonoBehaviour
         OnStop?.Invoke();
     }
 
-    public void Reset()
+    internal void Reset()
     {
         IsStart = false;
         IsPause = false;

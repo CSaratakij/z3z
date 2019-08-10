@@ -9,7 +9,6 @@ namespace Z3Z
     {
         DamageAble damageAble;
 
-
         void Awake()
         {
             Initialize();

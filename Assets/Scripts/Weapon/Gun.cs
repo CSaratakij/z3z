@@ -20,6 +20,9 @@ namespace Z3Z
         Transform barrel;
 
         [SerializeField]
+        Animator gunAnimator;
+
+        [SerializeField]
         string owner;
 
         bool isFireAble = true;
@@ -75,6 +78,9 @@ namespace Z3Z
                 obj.gameObject.transform.position = barrel.position;
                 obj.gameObject.SetActive(true);
 
+                if (gunAnimator != null)
+                    gunAnimator.SetTrigger("Shoot");
+
                 if (owner == "Player")
                     ObjectiveChecker.AddBulletCount();
 
@@ -82,12 +88,12 @@ namespace Z3Z
             }
         }
 
-        public void PullTrigger()
+        internal void PullTrigger()
         {
             PullTrigger(barrel.transform.forward);
         }
 
-        public void PullTrigger(Vector3 aimDirection)
+        internal void PullTrigger(Vector3 aimDirection)
         {
             if (!isFireAble)
                 return;

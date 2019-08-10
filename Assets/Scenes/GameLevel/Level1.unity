@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 91e7df9c8d362773697ec115a0ce3e57,
+  m_LightingDataAsset: {fileID: 112000000, guid: 7e8e286084e8e802bbd70ccad16986e5,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -9789,11 +9789,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2166301100081600893, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
-        type: 3}
-      propertyPath: m_Name
-      value: DepthOnlyCamera
-      objectReference: {fileID: 0}
     - target: {fileID: 2166301100081600894, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9849,6 +9844,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2166301100081600893, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
+        type: 3}
+      propertyPath: m_Name
+      value: DepthOnlyCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 2166301100081600881, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
         type: 3}
       propertyPath: camera
@@ -9859,23 +9859,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 109172125}
-    - target: {fileID: 2166301098971153132, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6a0c968fea4b46cfba01c29346269372, type: 2}
-    - target: {fileID: 2166301099678622279, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6a0c968fea4b46cfba01c29346269372, type: 2}
-    - target: {fileID: 2166301099130502785, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 6a0c968fea4b46cfba01c29346269372, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42121dd9c1c8baa45bda84db3ca81dc8, type: 3}
+--- !u!95 &2166301098139653115 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2166301098139653115, guid: 42121dd9c1c8baa45bda84db3ca81dc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2166301098139653113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2882855846755254638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10233,10 +10224,24 @@ PrefabInstance:
       propertyPath: barrel
       value: 
       objectReference: {fileID: 1154100903}
+    - target: {fileID: 7069877467825347472, guid: a48ba8e31794b6eceaaf7c7ecf79c04b,
+        type: 3}
+      propertyPath: gunAnimator
+      value: 
+      objectReference: {fileID: 2166301098139653115}
     - target: {fileID: 1844000597, guid: a48ba8e31794b6eceaaf7c7ecf79c04b, type: 3}
       propertyPath: gunModel
       value: 
       objectReference: {fileID: 1066520850}
+    - target: {fileID: 1844000597, guid: a48ba8e31794b6eceaaf7c7ecf79c04b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069877467825347474, guid: a48ba8e31794b6eceaaf7c7ecf79c04b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a48ba8e31794b6eceaaf7c7ecf79c04b, type: 3}
 --- !u!1001 &7814205786602994567
