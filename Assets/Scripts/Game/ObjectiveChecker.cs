@@ -36,6 +36,7 @@ namespace Z3Z
         void OnDestroy()
         {
             UnsubscribeEvent();
+            ClearStat();
         }
 
         void CheckObjective()
