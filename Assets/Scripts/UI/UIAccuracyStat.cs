@@ -15,7 +15,6 @@ namespace Z3Z
         [SerializeField]
         ObjectiveChecker objectiveChecker;
 
-
         void OnEnable()
         {
             if (objectiveChecker.IsPassObjective()) {

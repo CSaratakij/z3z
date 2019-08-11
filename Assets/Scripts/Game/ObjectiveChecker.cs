@@ -9,23 +9,24 @@ namespace Z3Z
         [SerializeField]
         GameObject[] objects;
 
+        [SerializeField]
+        GameObject[] optionalObjects;
 
         public static int BulletCount { get; private set; }
 
-
         public int TotalEnemy => objects.Length;
+        public int TotalOptionalEnemy => optionalObjects.Length;
 
         public float Accuracy {
             get {
                 if (BulletCount == 0)
                     return 0.0f;
                 else
-                    return (float)TotalEnemy / (float)BulletCount;
+                    return (float)(TotalEnemy + TotalOptionalEnemyPoint()) / (float)BulletCount;
             }
         }
 
         bool isChecking = false;
-
 
         void Awake()
         {
@@ -60,7 +61,6 @@ namespace Z3Z
             }
         }
 
-
         void OnTriggerEnter(Collider collider)
         {
             if (!collider.CompareTag("Player"))
@@ -92,6 +92,21 @@ namespace Z3Z
         void OnGameReset()
         {
             ClearStat();
+        }
+
+        int TotalOptionalEnemyPoint()
+        {
+            int result = 0;
+
+            for (int i = 0; i < optionalObjects.Length; ++i)
+            {
+                if (optionalObjects[i].activeSelf)
+                    continue;
+
+                result += 1;
+            }
+
+            return result;
         }
 
         public static void AddBulletCount()

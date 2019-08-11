@@ -7,16 +7,14 @@ namespace Z3Z
     public class LookAtViewportCenter : MonoBehaviour
     {
         [SerializeField]
-        Camera camera;
+        new Camera camera;
 
         [SerializeField]
         Transform barrel;
 
-
         Vector3 viewportCenter;
         Vector3 worldPoint;
         Vector3 relativeVector;
-
 
         void Awake()
         {
