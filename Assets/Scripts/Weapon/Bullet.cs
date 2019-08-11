@@ -26,7 +26,6 @@ namespace Z3Z
 
         TrailRenderer trailRenderer;
 
-
         void Awake()
         {
             Initialize();
@@ -66,10 +65,8 @@ namespace Z3Z
 
         void LateUpdate()
         {
-            transform.Rotate(Vector3.forward * 360.0f * Time.deltaTime);
-
-            if (Time.time > disableTime && gameObject.activeSelf)
-                gameObject.SetActive(false);
+            RotateHandler();
+            LifeTimeHandler();
         }
 
         void OnTriggerEnter(Collider collider)
@@ -86,10 +83,22 @@ namespace Z3Z
             rigid.MovePosition(rigid.position + velocity);
         }
 
-        public void SetMovDirection(Vector3 value)
+        void RotateHandler()
+        {
+            transform.Rotate(Vector3.forward * 360.0f * Time.deltaTime);
+        }
+
+        void LifeTimeHandler()
+        {
+            if (Time.time > disableTime && gameObject.activeSelf)
+                gameObject.SetActive(false);
+        }
+
+        internal void SetMovDirection(Vector3 value)
         {
             moveDirection = value;
             transform.rotation = Quaternion.LookRotation(moveDirection);
         }
     }
 }
+

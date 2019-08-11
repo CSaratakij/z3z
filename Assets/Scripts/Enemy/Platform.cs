@@ -9,7 +9,6 @@ namespace Z3Z
     {
         Timer timer;
 
-
         void Awake()
         {
             Initialize();
@@ -49,3 +48,4 @@ namespace Z3Z
         }
     }
 }
+

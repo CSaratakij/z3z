@@ -23,6 +23,9 @@ namespace Z3Z
         Animator gunAnimator;
 
         [SerializeField]
+        ParticleSystem muzzleEffect;
+
+        [SerializeField]
         string owner;
 
         bool isFireAble = true;
@@ -80,6 +83,9 @@ namespace Z3Z
 
                 if (gunAnimator != null)
                     gunAnimator.SetTrigger("Shoot");
+
+                if (muzzleEffect != null)
+                    muzzleEffect.Play();
 
                 if (owner == "Player")
                     ObjectiveChecker.AddBulletCount();

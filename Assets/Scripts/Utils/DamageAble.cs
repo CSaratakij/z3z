@@ -10,9 +10,17 @@ namespace Z3Z
         public event Action OnHit;
 
         [SerializeField]
+        bool hitByTrigger = true;
+
+        [SerializeField]
         string hitTag;
 
         void Awake()
+        {
+            Initialize();
+        }
+
+        void Initialize()
         {
             if (hitTag == string.Empty)
                 hitTag = "Bullet";
@@ -25,7 +33,23 @@ namespace Z3Z
 
         void OnTriggerEnter(Collider collider)
         {
-            if (collider.CompareTag(hitTag)) {
+            if (!hitByTrigger)
+                return;
+
+            CheckHit(collider.gameObject);
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            if (hitByTrigger)
+                return;
+
+            CheckHit(collision.gameObject);
+        }
+
+        void CheckHit(GameObject obj)
+        {
+            if (obj.CompareTag(hitTag)) {
                 OnHit?.Invoke();
             }
         }
