@@ -10,8 +10,12 @@ namespace Z3Z
         [SerializeField]
         RectTransform[] views;
 
-        enum View
+        [SerializeField]
+        CursorController cursorController;
+
+        internal enum View
         {
+            PauseMenu,
             GameOver
         }
 
@@ -20,9 +24,22 @@ namespace Z3Z
             SubscribeEvent();
         }
 
+        void Update()
+        {
+            InputHandler();
+        }
+
         void OnDestroy()
         {
             UnsubscribeEvent();
+            Time.timeScale = 1.0f;
+        }
+
+        void InputHandler()
+        {
+            if (Input.GetButtonDown("Cancel")) {
+                TogglePauseMenu();
+            }
         }
 
         void HideAllView()
@@ -65,6 +82,23 @@ namespace Z3Z
             Show(View.GameOver, true);
         }
 
+        public void TogglePauseMenu()
+        {
+            bool isShow = views[(int)View.PauseMenu].gameObject.activeSelf;
+            isShow = !isShow;
+
+            if (isShow) {
+                cursorController.ShowCursor();
+            }
+            else {
+                cursorController.LockCursor();
+                GameSetting.Save();
+            }
+
+            GameController.Pause(isShow);
+            Show(View.PauseMenu, isShow);
+        }
+
         public void RestartGame()
         {
             ObjectiveChecker.ClearStat();
@@ -72,6 +106,13 @@ namespace Z3Z
 
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.buildIndex);
+        }
+
+        public void BackToMainMenu()
+        {
+            ObjectiveChecker.ClearStat();
+            GameController.Reset();
+            SceneManager.LoadScene(0);
         }
     }
 }

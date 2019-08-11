@@ -27,7 +27,6 @@ namespace Z3Z
         [SerializeField]
         Vector3 offset;
 
-
         float sensitivity;
 
         Vector2 mouseAxis;
@@ -36,6 +35,11 @@ namespace Z3Z
 
         Vector3 rotationAxis;
 
+        void Awake()
+        {
+            Initialize();
+            SubscribeEvent();
+        }
 
         void Update()
         {
@@ -48,9 +52,20 @@ namespace Z3Z
             RotateHandler();
         }
 
+        void OnDestroy()
+        {
+            UnsubscribeEvent();
+        }
+
+        void Initialize()
+        {
+            mouseSensitivity = GameSetting.MouseSensitivity;
+            gamepadSensitivity = GameSetting.GamepadSensitivity;
+        }
+
         void InputHandler()
         {
-            if (!GameController.IsGameStart)
+            if (!GameController.IsGameStart || GameController.IsGamePause)
                 return;
 
             mouseAxis.x = Input.GetAxisRaw("Mouse X");
@@ -97,6 +112,22 @@ namespace Z3Z
             Vector3 lookVector = transform.forward;
             lookVector.y = 0.0f;
             target.localRotation = Quaternion.LookRotation(lookVector, Vector3.up);
+        }
+
+        void SubscribeEvent()
+        {
+            GameSetting.OnSettingChanged += OnSettingChanged;
+        }
+
+        void UnsubscribeEvent()
+        {
+            GameSetting.OnSettingChanged -= OnSettingChanged;
+        }
+
+        void OnSettingChanged()
+        {
+            mouseSensitivity = GameSetting.MouseSensitivity;
+            gamepadSensitivity = GameSetting.GamepadSensitivity;
         }
     }
 }

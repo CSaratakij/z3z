@@ -6,6 +6,16 @@ namespace Z3Z
 {
     public class UIMainMenu : MonoBehaviour
     {
+        void Awake()
+        {
+            Initialize();
+        }
+
+        void Initialize()
+        {
+            GameSetting.Load();
+        }
+
         public void Quit()
         {
             Application.Quit();

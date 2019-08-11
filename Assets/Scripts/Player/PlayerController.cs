@@ -84,6 +84,9 @@ namespace Z3Z
 
         void InputHandler()
         {
+            if (GameController.IsGamePause)
+                return;
+
             if (moveState == MoveState.Idle) {
                 inputVector = Vector2.zero;
                 return;

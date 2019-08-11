@@ -9,17 +9,20 @@ namespace Z3Z
         [SerializeField]
         CursorLockMode cursorLockState;
 
-
         void Awake()
         {
             Initialize();
             SubscribeEvent();
         }
 
+#if UNITY_EDITOR
         void Update()
         {
-            InputHandler();
+            if (Input.GetKeyDown(KeyCode.F2)) {
+                ShowCursor();
+            }
         }
+#endif
 
         void OnDestroy()
         {
@@ -31,27 +34,13 @@ namespace Z3Z
             ShowCursor();
         }
 
-        void InputHandler()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape)) {
-                Cursor.lockState = (CursorLockMode.None == Cursor.lockState) ? CursorLockMode.Locked : CursorLockMode.None;
-                Cursor.visible = (Cursor.lockState == CursorLockMode.None);
-            }
-
-#if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.F2)) {
-                ShowCursor();
-            }
-#endif
-        }
-
-        void LockCursor()
+        internal void LockCursor()
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
-        void ShowCursor()
+        internal void ShowCursor()
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

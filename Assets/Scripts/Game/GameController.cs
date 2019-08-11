@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Z3Z
 {
@@ -9,7 +10,7 @@ namespace Z3Z
         public static event Action OnGameReset;
 
         public static bool IsGameStart { get; private set; }
-
+        public static bool IsGamePause => (Time.timeScale <= 0.0f);
 
         public static void GameStart()
         {
@@ -33,6 +34,11 @@ namespace Z3Z
         {
             IsGameStart = false;
             OnGameReset?.Invoke();
+        }
+
+        public static void Pause(bool value)
+        {
+            Time.timeScale = (value) ? 0.0f : 1.0f;
         }
     }
 }
