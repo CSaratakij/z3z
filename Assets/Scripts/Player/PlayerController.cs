@@ -8,6 +8,9 @@ namespace Z3Z
     public class PlayerController : MonoBehaviour
     {
         [SerializeField]
+        float airboneSlowrate;
+
+        [SerializeField]
         float moveForce;
 
         [SerializeField]
@@ -142,6 +145,10 @@ namespace Z3Z
                 else {
                     airboneVelocity = (jumpInputVector.x * transform.right) + (jumpInputVector.y * transform.forward);
                     airboneVelocity *= moveForce;
+
+                    if (inputVector == Vector2.zero) {
+                        jumpInputVector = Vector3.Lerp(jumpInputVector, Vector3.zero, airboneSlowrate);
+                    }
                 }
 
                 airboneVelocity.y = velocity.y;

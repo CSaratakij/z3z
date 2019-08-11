@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350a9b80c0805d3a3b3c7a14d89e95b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  airboneSlowrate: 0.08
   moveForce: 11
   jumpForce: 12
   gravity: 30
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2210d79755c55c97789aaf5ab07d8326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitByTrigger: 1
   hitTag: BulletEnemy
 --- !u!114 &1844000597
 MonoBehaviour:
